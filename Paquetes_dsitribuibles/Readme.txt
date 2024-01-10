@@ -1,0 +1,1 @@
+El archivo setup.py debería estar en la carpeta root, ateniendo a la ruta para crear el paquete "paquetecalculos"
