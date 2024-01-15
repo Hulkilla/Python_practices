@@ -8,7 +8,7 @@ from tkinter import *
 raiz  = Tk()
 raiz.title("Introducción de botones")
 raiz.config(bg="lightgoldenrodyellow")
-raiz.geometry("700x600")
+raiz.geometry("300x300")
 
 
 
