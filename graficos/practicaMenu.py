@@ -1,9 +1,10 @@
 from tkinter import *
 from tkinter import messagebox #Hay que importarlo
-
+from tkinter import filedialog
 
 root = Tk()
-
+root.resizable(1,1)
+root.geometry("300x100") 
 
 def infoAdicional():
     messagebox.showinfo("Procesador de Marina", "Programa de hacer cosas version 2023") # Nombre de la ventana emergente y el texto
@@ -28,12 +29,22 @@ def cerrarDocumento():
         root.destroy()
 
 
+def abreFichero():
+    fichero = filedialog.askopenfile(title = "Abrir", initialdir = "C:/", filetypes = (("Ficheros de Excel", ".xlsx"),("Ficheros de texto", ".txt"), ("Todos los ficheros", "*.*")))
+    # filetypes necesita una tupla y se consigue con 2 parentesis, uno de los cuales va a llevar el texto del tipo de archivo y y su extensión. Como mínimo se necesitan 2 parámetros
+    
+    print(fichero)
+    
+Button(root, text = "Abrir fichero", command = abreFichero).pack()
+
+
 barraMenu = Menu(root)
 root.config(menu = barraMenu, width = 300, height=300) #Hay que especificar que se cree el na raiz el menú
 
 
 archivoMenu = Menu(barraMenu, tearoff=0) #Tearoff es para quitar un separador que sale y que queda raro
 archivoMenu.add_command(label = "Nuevo")
+archivoMenu.add_command(label = "Abrir Archivo", command = abreFichero)
 archivoMenu.add_command(label = "Guardar")
 archivoMenu.add_command(label = "Guardar como")
 archivoMenu.add_separator()
